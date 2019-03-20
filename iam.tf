@@ -60,12 +60,7 @@ resource "aws_iam_policy" "bastion_policy" {
       "Resource": [
         "arn:aws:route53:::hostedzone/${var.hosted_zone_id}"
       ]
-    }
-  ]
-},
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    },
     {
       "Sid": "s3",
       "Effect": "Allow",
@@ -77,8 +72,7 @@ resource "aws_iam_policy" "bastion_policy" {
       ]
     }
   ]
-},
-
+}
 EOF
 }
 
