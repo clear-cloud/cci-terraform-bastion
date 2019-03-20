@@ -2,7 +2,7 @@
 # s3 Bucket
 # ---------------------------------------
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "bastiondata" {
   bucket_prefix = "${var.environment}-bastion-"
   acl           = "private"
   versioning {

@@ -52,7 +52,7 @@ resource "aws_iam_policy" "bastion_policy" {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "Stmt1477071439000",
+      "Sid": "r53",
       "Effect": "Allow",
       "Action": [
         "route53:ChangeResourceRecordSets"
@@ -62,7 +62,23 @@ resource "aws_iam_policy" "bastion_policy" {
       ]
     }
   ]
-}
+},
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "s3",
+      "Effect": "Allow",
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": [
+        "${aws_s3_bucket.bastiondata.arn}/*"
+      ]
+    }
+  ]
+},
+
 EOF
 }
 
