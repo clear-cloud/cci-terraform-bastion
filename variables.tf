@@ -96,3 +96,9 @@ variable "vpc_zone_identifier" {
 variable "aws_ssm_iam_arn" {
   default = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
 }
+
+variable "vol2_availability_zone" {}
+
+variable "vol2_size" {
+  default = "100"
+}
