@@ -30,3 +30,10 @@ yum install amazon-ssm-agent python-deltarpm -y
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 echo "systemctl start amazon-ssm-agent" >> /etc/rc.local
+#
+# Setup data volume
+#
+/usr/sbin/mkfs.ext4 /dev/xvdf
+/usr/bin/mkdir /xvdf
+/usr/bin/mount /dev/xvdf /xvdf
+/usr/bin/echo "/dev/xvdf /xvdf ext4 defaults 0 0" >> /etc/fstab
