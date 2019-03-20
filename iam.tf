@@ -70,6 +70,17 @@ resource "aws_iam_policy" "bastion_policy" {
       "Resource": [
         "${aws_s3_bucket.bastiondata.arn}/*"
       ]
+    },
+    {
+      "Sid": "startstop",
+      "Effect": "Allow",
+      "Action": [
+         "ec2:StartInstances",
+         "ec2:StopInstances"
+      ],
+      "Resource": [
+         "*"
+     ]
     }
   ]
 }
