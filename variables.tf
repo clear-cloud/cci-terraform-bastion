@@ -98,8 +98,14 @@ variable "aws_ssm_iam_arn" {
 }
 
 variable "data_volume_type" {
-default = "gp2"
+  default = "gp2"
 }
+
 variable "data_volume_size" {
-default = "100"
+  default = "100"
+}
+
+variable "supplementary_user_data" {
+  description = "Supplementary shell script commands for adding to user data."
+  default     = ""
 }

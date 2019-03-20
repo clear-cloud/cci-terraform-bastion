@@ -10,14 +10,14 @@ resource "aws_launch_configuration" "bastion" {
   security_groups      = ["${var.security_groups}"]
   enable_monitoring    = "${var.enable_monitoring}"
   user_data            = "${data.template_file.user_data.rendered}"
-  
-# Setup root block device
+
+  # Setup root block device
   root_block_device {
     volume_size = "${var.volume_size}"
     volume_type = "${var.volume_type}"
   }
 
-# Setup additional data volume
+  # Setup additional data volume
   ebs_block_device {
     device_name = "/dev/xvdf"
     volume_type = "${var.data_volume_type}"
@@ -37,8 +37,9 @@ data "template_file" "user_data" {
   template = "${file("${path.module}/userdata.sh")}"
 
   vars {
-    hostname        = "${var.hostname}"
-    dns_domain_name = "${var.dns_domain_name}"
-    hosted_zone_id  = "${var.hosted_zone_id}"
+    hostname                = "${var.hostname}"
+    dns_domain_name         = "${var.dns_domain_name}"
+    hosted_zone_id          = "${var.hosted_zone_id}"
+    supplementary_user_data = "${var.supplementary_user_data}"
   }
 }

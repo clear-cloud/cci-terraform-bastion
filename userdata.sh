@@ -37,3 +37,7 @@ echo "systemctl start amazon-ssm-agent" >> /etc/rc.local
 /usr/bin/mkdir /xvdf
 /usr/bin/mount /dev/xvdf /xvdf
 /usr/bin/echo "/dev/xvdf /xvdf ext4 defaults 0 0" >> /etc/fstab
+#
+# Allow for additional commands
+#
+${supplementary_user_data}
