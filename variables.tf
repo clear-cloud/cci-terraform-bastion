@@ -49,7 +49,7 @@ variable "enable_monitoring" {
 
 variable "instance_type" {
   description = "ec2 instance type"
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 
 variable "image_id" {
