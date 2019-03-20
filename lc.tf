@@ -10,7 +10,8 @@ resource "aws_launch_configuration" "bastion" {
   security_groups      = ["${var.security_groups}"]
   enable_monitoring    = "${var.enable_monitoring}"
   user_data            = "${data.template_file.user_data.rendered}"
-
+  ebs_block_device     = "${aws_ebs_volume.vol2.id}" 
+  
   # Setup root block device
   root_block_device {
     volume_size = "${var.volume_size}"
