@@ -24,6 +24,12 @@ hostnamectl set-hostname ${hostname}.${dns_domain_name}
 #
 yum update -y
 #
+# Install AWSCLI 
+#
+/bin/curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python get-pip.py
+pip install awscli
+#
 # Setup SSM Agent
 #
 yum install amazon-ssm-agent python-deltarpm -y
