@@ -53,6 +53,3 @@ systemctl start amazon-ssm-agent
 # Allow for additional commands
 #
 ${supplementary_user_data}
-
-
-nvme1n1
