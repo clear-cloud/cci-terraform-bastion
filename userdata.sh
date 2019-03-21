@@ -31,6 +31,12 @@ systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 echo "systemctl start amazon-ssm-agent" >> /etc/rc.local
 #
+# Setup SSM Agent RHEL
+#
+yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+systemctl enable amazon-ssm-agent
+systemctl start amazon-ssm-agent
+#
 # Setup data volume
 #
 /usr/sbin/mkfs.ext4 /dev/xvdf
