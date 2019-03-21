@@ -1,3 +1,8 @@
+variable "data_volume_mount_point" {
+  description = "data volume mount dir"
+  default = "/data"
+}
+
 variable "alarm_topic_arn" {
   description = "Topic ARN to send ASG event notifcations to"
   default     = ""
