@@ -78,10 +78,12 @@ resource "aws_iam_policy" "bastion_policy" {
            "s3:ListBucketByTags",
            "s3:ListBucket",
            "s3:HeadBucket",
-           "s3:ListAllMyBuckets",
+           "s3:ListAllMyBuckets"
        ],
-       "Resource": "*"
-    },
+       "Resource":[
+          "*"
+     ]
+     },
     {
       "Sid": "startstop",
       "Effect": "Allow",
