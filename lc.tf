@@ -22,7 +22,6 @@ resource "aws_launch_configuration" "bastion" {
     device_name = "/dev/xvdf"
     volume_type = "${var.data_volume_type}"
     volume_size = "${var.data_volume_size}"
-    delete_on_termination = "${var.delete_on_termination}"
   }
 
   # Create before destroy

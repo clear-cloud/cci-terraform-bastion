@@ -1,7 +1,3 @@
-variable "delete_on_termination" {
-  default = "true"
-}
-
 variable "data_volume_mount_point" {
   description = "data volume mount dir"
   default = "/data"
