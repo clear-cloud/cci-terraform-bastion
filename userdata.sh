@@ -43,13 +43,6 @@ yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/li
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 #
-# Setup data volume
-#
-/usr/sbin/mkfs.ext4 /dev/nvme1n1
-/usr/bin/mkdir ${data_volume_mount_point}
-/usr/bin/mount /dev/nvme1n1 ${data_volume_mount_point}
-/usr/bin/echo "/dev/nvme1n1 ${data_volume_mount_point} ext4 defaults 0 0" >> /etc/fstab
-#
 # Allow for additional commands
 #
 ${supplementary_user_data}
