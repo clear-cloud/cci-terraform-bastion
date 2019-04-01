@@ -89,7 +89,8 @@ resource "aws_iam_policy" "bastion_policy" {
       "Effect": "Allow",
       "Action": [
          "ec2:StartInstances",
-         "ec2:StopInstances"
+         "ec2:StopInstances",
+         "ec2:DescribeInstances"    
       ],
       "Resource": [
          "*"
