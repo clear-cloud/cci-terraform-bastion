@@ -1,7 +1,8 @@
 variable "global_read_only_allow" {
   description = "Allows for attaching of the Global readonly IAM policy"
-  default = "0"
+  default     = "0"
 }
+
 variable "data_volume_mount_point" {
   description = "data volume mount dir"
   default     = "/data"
@@ -118,6 +119,7 @@ variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data."
   default     = ""
 }
+
 variable "aws_ec2ro_iam_arn" {
   default = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
 }

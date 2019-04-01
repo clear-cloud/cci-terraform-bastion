@@ -109,6 +109,7 @@ resource "aws_iam_role_policy_attachment" "bastion_attach_ssm_policy" {
   role       = "${aws_iam_role.bastion_role.name}"
   policy_arn = "${var.aws_ssm_iam_arn}"
 }
+
 # ---------------------------------
 # Attach AWS SSM IAM Policy to Role
 # ---------------------------------
@@ -121,7 +122,7 @@ resource "aws_iam_role_policy_attachment" "bastion_attach_ec2ro_policy" {
 # Attach Global RO IAM Policy to Role
 # ---------------------------------
 resource "aws_iam_role_policy_attachment" "attach_global_readonly_policy" {
-  count      = "${var.global_read_only_allow ? 1 : 0}" 
+  count      = "${var.global_read_only_allow ? 1 : 0}"
   role       = "${aws_iam_role.bastion_role.name}"
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
