@@ -1,6 +1,6 @@
 variable "data_volume_mount_point" {
   description = "data volume mount dir"
-  default = "/data"
+  default     = "/data"
 }
 
 variable "alarm_topic_arn" {
