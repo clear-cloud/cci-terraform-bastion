@@ -1,3 +1,7 @@
+variable "global_read_only_allow" {
+  description = "Allows for attaching of the Global readonly IAM policy"
+  default = "0"
+}
 variable "data_volume_mount_point" {
   description = "data volume mount dir"
   default     = "/data"
