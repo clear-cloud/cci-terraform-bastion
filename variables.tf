@@ -114,3 +114,6 @@ variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data."
   default     = ""
 }
+variable "aws_ec2ro_iam_arn" {
+  default = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
+}

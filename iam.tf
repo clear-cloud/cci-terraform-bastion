@@ -109,3 +109,13 @@ resource "aws_iam_role_policy_attachment" "bastion_attach_ssm_policy" {
   role       = "${aws_iam_role.bastion_role.name}"
   policy_arn = "${var.aws_ssm_iam_arn}"
 }
+# ---------------------------------
+# Attach AWS SSM IAM Policy to Role
+# ---------------------------------
+resource "aws_iam_role_policy_attachment" "bastion_attach_ec2ro_policy" {
+  role       = "${aws_iam_role.bastion_role.name}"
+  policy_arn = "${var.aws_ec2ro_iam_arn}"
+}
+
+
+
