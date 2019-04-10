@@ -4,6 +4,12 @@
 #
 yum install awscli -y
 #
+# Install AWSCLI RHEL
+#
+/bin/curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python get-pip.py
+pip install awscli
+#
 # Setup DNS record update
 #
 PUBLICIP=$(curl -s 'http://169.254.169.254/latest/meta-data/public-ipv4')
@@ -23,12 +29,6 @@ hostnamectl set-hostname ${hostname}.${dns_domain_name}
 # Update host
 #
 yum update -y
-#
-# Install AWSCLI 
-#
-/bin/curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-python get-pip.py
-pip install awscli
 #
 # Setup SSM Agent
 #
