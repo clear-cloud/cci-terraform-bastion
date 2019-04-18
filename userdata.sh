@@ -1,5 +1,9 @@
 #!/bin/sh
 #
+# Install custom additional set-up PRE
+#
+${supplementary_user_data_pre}
+#
 # Install AWSCLI
 #
 yum install awscli -y

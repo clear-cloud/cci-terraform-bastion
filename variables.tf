@@ -1,3 +1,7 @@
+variable "supplementary_user_data_pre" {
+  default = "#"
+}
+
 variable "global_read_only_allow" {
   description = "Allows for attaching of the Global readonly IAM policy"
   default     = "0"
