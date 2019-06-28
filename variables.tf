@@ -1,10 +1,12 @@
 variable "eip_association_id" {
   default = ""
 }
+
 variable "region" {}
+
 variable "eip_static" {
   description = "Static IP required or not"
-  default = "false"
+  default     = "false"
 }
 
 variable "supplementary_user_data_pre" {
@@ -139,7 +141,7 @@ variable "aws_ec2ro_iam_arn" {
 
 variable "platform" {
   description = "Allows for differentiating between Linux and Windows userdata"
-  default = "linux"
+  default     = "linux"
 }
 
 variable "ComputerName" {
@@ -149,4 +151,3 @@ variable "ComputerName" {
 variable "userName" {
   default = ""
 }
-

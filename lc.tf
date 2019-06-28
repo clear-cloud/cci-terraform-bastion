@@ -2,7 +2,7 @@
 # Launch Config
 # ---------------------------------------
 resource "aws_launch_configuration" "bastion" {
-  depends_on           = [aws_eip.bastion]
+  depends_on           = "[aws_eip.bastion]"
   name_prefix          = "terraform-bastion-lc-"
   image_id             = "${var.image_id}"
   instance_type        = "${var.instance_type}"
@@ -28,7 +28,8 @@ resource "aws_launch_configuration" "bastion" {
 # Render Bastion userdata bootstrap file
 # ---------------------------------------
 data "template_file" "user_data" {
-  template = "${file("${path.module}/${var.platform}/userdata")}"
+  depends_on = "[aws_eip.bastion]"
+  template   = "${file("${path.module}/${var.platform}/userdata")}"
 
   vars {
     hostname                    = "${var.hostname}"
@@ -38,8 +39,8 @@ data "template_file" "user_data" {
     supplementary_user_data     = "${var.supplementary_user_data}"
     data_volume_mount_point     = "${var.data_volume_mount_point}"
     region                      = "${var.region}"
-    ComputerName                = "${var.ComputerName}" # Windows userdata
-    userName                    = "${var.userName}"     # Windows userdata
-    eip_association_id          = "${aws_eip.bastion.association_id}" # Windows userdata 
+    ComputerName                = "${var.ComputerName}"                # Windows userdata
+    userName                    = "${var.userName}"                    # Windows userdata
+    eip_association_id          = "${aws_eip.bastion.association_id}"  # Windows userdata 
   }
 }
