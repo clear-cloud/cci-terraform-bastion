@@ -2,6 +2,7 @@
 # Launch Config
 # ---------------------------------------
 resource "aws_launch_configuration" "bastion" {
+  depends_on           = [aws_eip.bastion]
   name_prefix          = "terraform-bastion-lc-"
   image_id             = "${var.image_id}"
   instance_type        = "${var.instance_type}"
