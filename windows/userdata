@@ -15,7 +15,7 @@ Rename-LocalUser -Name "Administrator" -NewName ${userName}
 
 # Change admin password
 $adminPassword = Get-SSMParameter -Name ${ComputerName} -WithDecryption $TRUE
-$Admin = [adsi]("WinNT://$env:ComputerName/Graphite.Rack, user")
+$Admin = [adsi]("WinNT://$env:ComputerName/${userName}, user")
 $Admin.Invoke("SetPassword", $adminPassword.value)
 
 
