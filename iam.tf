@@ -84,6 +84,16 @@ resource "aws_iam_policy" "bastion_policy" {
           "*"
      ]
      },
+   {
+       "Sid": "ssmGetParam",
+       "Effect": "Allow",
+       "Action": [
+           "ssm:GetParameter"
+       ],
+       "Resource":[
+          "*"
+     ]
+     },
     {
       "Sid": "startstop",
       "Effect": "Allow",
