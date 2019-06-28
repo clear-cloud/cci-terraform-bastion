@@ -17,13 +17,6 @@ resource "aws_launch_configuration" "bastion" {
     volume_type = "${var.volume_type}"
   }
 
-  # Setup additional data volume
-  #ebs_block_device {
-  #  device_name = "/dev/xvdf"
-  #  volume_type = "${var.data_volume_type}"
-  #  volume_size = "${var.data_volume_size}"
-  #}
-
   # Create before destroy
   lifecycle {
     create_before_destroy = true
