@@ -2,7 +2,7 @@
 # Launch Config
 # ---------------------------------------
 resource "aws_launch_configuration" "bastion" {
-  depends_on           = "[aws_eip.bastion]"
+  depends_on           = ["aws_eip.bastion"]
   name_prefix          = "terraform-bastion-lc-"
   image_id             = "${var.image_id}"
   instance_type        = "${var.instance_type}"
@@ -28,7 +28,7 @@ resource "aws_launch_configuration" "bastion" {
 # Render Bastion userdata bootstrap file
 # ---------------------------------------
 data "template_file" "user_data" {
-  depends_on = "[aws_eip.bastion]"
+  depends_on = ["aws_eip.bastion"]
   template   = "${file("${path.module}/${var.platform}/userdata")}"
 
   vars {
