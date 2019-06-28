@@ -1,0 +1,20 @@
+<powershell>
+#
+# Install custom additional set-up PRE
+#
+${supplementary_user_data_pre}
+
+
+
+
+
+
+
+
+
+
+#
+# Install custom additional set-up POST
+#
+${supplementary_user_data}
+</powershell>
