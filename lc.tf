@@ -41,6 +41,6 @@ data "template_file" "user_data" {
     region                      = "${var.region}"
     ComputerName                = "${var.ComputerName}"                # Windows userdata
     userName                    = "${var.userName}"                    # Windows userdata
-    eip_assoc_id                = "${aws_eip.bastion.association_id}"  # Windows userdata 
+    eip_assoc_id                = "${aws_eip.bastion.id}"              # Windows userdata 
   }
 }
