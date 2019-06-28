@@ -34,7 +34,7 @@ resource "aws_launch_configuration" "bastion" {
 # Render Bastion userdata bootstrap file
 # ---------------------------------------
 data "template_file" "user_data" {
-  template = "${file("${path.module}/userdata.sh")}"
+  template = "${file("${path.module}/${var.platform}/userdata")}"
 
   vars {
     hostname                    = "${var.hostname}"

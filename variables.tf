@@ -127,3 +127,8 @@ variable "supplementary_user_data" {
 variable "aws_ec2ro_iam_arn" {
   default = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
 }
+
+variable "platform" {
+  description = "Allows for differentiating between Linux and Windows userdata"
+  default = "linux"
+}
