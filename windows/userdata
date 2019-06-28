@@ -1,22 +1,20 @@
 <powershell>
-[CmdletBinding()]
-param(
-  [Parameter(Mandatory=$True,Position=1)]
-  [string]$userName
-  [Parameter(Mandatory=$True,Position=)]
-  [string]$ComputerName
-)
 $ErrorActionPreference = "Stop"
 #
 # Install custom additional set-up PRE
 #
 ${supplementary_user_data_pre}
+#
+#
+#
 #Disable windows firewall on all profiles
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False -ErrorAction Stop
+
 # Change username
-Rename-LocalUser -Name "Administrator" -NewName $userName
+Rename-LocalUser -Name "Administrator" -NewName ${userName}
+
 # Change admin password
-$adminPassword = Get-SSMParameter -Name $ComputerName -WithDecryption $TRUE
+$adminPassword = Get-SSMParameter -Name ${ComputerName} -WithDecryption $TRUE
 $Admin = [adsi]("WinNT://$env:ComputerName/Graphite.Rack, user")
 $Admin.Invoke("SetPassword", $adminPassword.value)
 

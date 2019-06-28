@@ -132,3 +132,12 @@ variable "platform" {
   description = "Allows for differentiating between Linux and Windows userdata"
   default = "linux"
 }
+
+variable "ComputerName" {
+  default = ""
+}
+
+variable "userName" {
+  default = ""
+}
+
