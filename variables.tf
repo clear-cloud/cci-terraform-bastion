@@ -1,3 +1,4 @@
+variable "region" {}
 variable "eip_static" {
   description = "Static IP required or not"
   default = "false"

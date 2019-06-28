@@ -36,6 +36,7 @@ data "template_file" "user_data" {
     supplementary_user_data_pre = "${var.supplementary_user_data_pre}"
     supplementary_user_data     = "${var.supplementary_user_data}"
     data_volume_mount_point     = "${var.data_volume_mount_point}"
+    region                      = "${var.region}"
     ComputerName                = "${var.ComputerName}" # Windows userdata
     userName                    = "${var.userName}"     # Windows userdata
   }
