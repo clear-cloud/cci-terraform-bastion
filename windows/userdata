@@ -4,9 +4,11 @@ $ErrorActionPreference = "Stop"
 # Install custom additional set-up PRE
 #
 ${supplementary_user_data_pre}
-#
-#
-#
+# Install AWSCLI
+$uri = "https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi"
+$out = "c:\AWSCLI32PY3.msi"
+Invoke-WebRequest -uri $uri -OutFile $out
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $out /quiet /norestart /l c:\AWSCLI32PY3.msi.log.txt"
 #Disable windows firewall on all profiles
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False -ErrorAction Stop
 
