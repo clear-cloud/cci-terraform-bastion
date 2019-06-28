@@ -100,7 +100,8 @@ resource "aws_iam_policy" "bastion_policy" {
       "Action": [
          "ec2:StartInstances",
          "ec2:StopInstances",
-         "ec2:DescribeInstances",    
+         "ec2:DescribeInstances",
+         "ec2:AssociateAddress",    
          "ec2:DescribeTags"
       ],
       "Resource": [
