@@ -10,16 +10,14 @@ Invoke-WebRequest -uri $uri -OutFile $out
 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $out /quiet /norestart /l c:\AWSCLI32PY3.msi.log.txt"
 #Disable windows firewall on all profiles
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False -ErrorAction Stop
-
+# Assign EIP is required
+aws ec2 associate-address --instance-id $(curl http://169.254.169.254/latest/meta-data/instance-id) --allocation-id ${eip_assoc_id} --allow-reassociation --region ${region}
 # Change username
-Rename-LocalUser -Name "Administrator" -NewName ${userName}
 
 # Change admin password
 $adminPassword = Get-SSMParameter -Name ${ComputerName} -WithDecryption $TRUE
 $Admin = [adsi]("WinNT://$env:ComputerName/${userName}, user")
 $Admin.Invoke("SetPassword", $adminPassword.value)
-# Assign EIP is required
-aws ec2 associate-address --instance-id $(curl http://169.254.169.254/latest/meta-data/instance-id) --allocation-id ${eip_assoc_id} --allow-reassociation --region ${region}
 #
 # Install custom additional set-up POST
 #
