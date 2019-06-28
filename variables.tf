@@ -1,5 +1,3 @@
-variable "eip_association_id" {}
-
 variable "region" {}
 
 variable "eip_static" {
