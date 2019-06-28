@@ -1,6 +1,4 @@
-variable "eip_association_id" {
-  default = ""
-}
+variable "eip_association_id" {}
 
 variable "region" {}
 
