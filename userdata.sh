@@ -12,7 +12,7 @@ yum install awscli -y
 #
 /bin/curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python get-pip.py
-pip install awscli
+pip install awscli==1.15.83
 #
 # Setup DNS record update
 #
