@@ -104,6 +104,7 @@ variable "security_groups" {
 }
 
 variable "vpc_zone_identifier" {
+  type        = "list"
   description = "A list of subnet IDs to launch resources in"
 }
 
