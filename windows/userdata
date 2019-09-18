@@ -4,7 +4,7 @@
 #
 ${supplementary_user_data_pre}
 # Set-Execution Policy
-Set-ExecutionPolicy Bypass -Force
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 # Install AWSCLI
 $uri = "https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi"
 $out = "c:\AWSCLI32PY3.msi"
@@ -13,7 +13,8 @@ Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $out /quiet /norestart /
 #Disable windows firewall on all profiles
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False -ErrorAction Stop
 # Assign EIP is required
-Register-EC2Address -InstanceId $(curl http://169.254.169.254/latest/meta-data/instance-id) -AllocationId ${eip_assoc_id} 
+$InstanceId = (Invoke-RestMethod -uri http://169.254.169.254/latest/meta-data/instance-id) 
+Register-EC2Address -InstanceId $InstanceId -AllocationId ${eip_assoc_id}
 # Change username
 Rename-LocalUser -Name "Administrator" -NewName ${userName}
 # Change admin password
