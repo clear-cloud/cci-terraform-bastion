@@ -20,8 +20,10 @@ resource "aws_launch_configuration" "bastion" {
 
   # Create before destroy
   lifecycle {
+    ignore_changes = ["ebs_optimized", "user_data", "ephemeral_block_device"]
     create_before_destroy = true
   }
+
 }
 
 # ---------------------------------------
