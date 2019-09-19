@@ -112,6 +112,7 @@ variable "security_groups" {
 
 variable "vpc_zone_identifier" {
   description = "A list of subnet IDs to launch resources in"
+  type        = "list"
 }
 
 variable "aws_ssm_iam_arn" {
